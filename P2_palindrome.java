@@ -30,5 +30,6 @@ class P2_palindrome {
         } else {
             System.out.println("string IS NOT palindrome");
         }
+        sc.close();
     }
 }

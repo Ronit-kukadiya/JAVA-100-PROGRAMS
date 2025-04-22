@@ -15,5 +15,6 @@ public class P5_digit_sum {
             sum = sum + (strArr[i] - '0');
         }
         System.out.println("sum of digits of " + n + " are " + sum);
+        sc.close();
     }
 }

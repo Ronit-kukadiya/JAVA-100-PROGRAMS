@@ -15,5 +15,6 @@ public class P3_factor {
                 System.out.print(i + ", ");
             }
         }
+        sc.close();
     }
 }
