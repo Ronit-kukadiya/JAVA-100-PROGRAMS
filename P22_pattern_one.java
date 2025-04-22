@@ -19,7 +19,7 @@ public class P22_pattern_one {
             alpha[i] = (char) ('A' + i);
         }
 
-        for (int i = 0; i < n+1; i++) {
+        for (int i = 0; i < n + 1; i++) {
             for (int j = 0; j < n - line; j++) {
                 System.out.print(" ");
             }
