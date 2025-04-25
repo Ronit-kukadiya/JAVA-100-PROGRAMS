@@ -5,7 +5,7 @@ import java.util.Scanner;
 class P1_even_sum {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter the array length:");
+        System.out.print("enter the array length:");
         int n = sc.nextInt();
 
         int sum = 0;
@@ -18,7 +18,7 @@ class P1_even_sum {
 
         System.out.println();
         for (int i = 0; i < n; i++) {
-            System.out.println(arr[i] + ",");
+            System.out.print(arr[i] + ",");
         }
 
         for (int i = 0; i < n; i++) {
