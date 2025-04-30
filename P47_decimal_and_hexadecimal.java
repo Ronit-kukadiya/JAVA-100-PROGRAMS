@@ -4,48 +4,47 @@ import java.util.Scanner;
 
 public class P47_decimal_and_hexadecimal {
     public static void main(String[] args) {
-        String n, ans;
+        String ans;
         Scanner sc = new Scanner(System.in);
-        while (true) {
-            System.out.println("========enter what you want to convert========");
-            System.out.println("Enter 1 for decimal to hexadecimal conversion > ");
-            System.out.println("Enter 2 for hexadecimal to decimal conversion > ");
-            System.out.println("Enter 0 to EXIT ");
-            System.out.print("Choice : ");
-            int choice = sc.nextInt();
 
-            System.out.println();
-            if (choice == 0) {
-                System.out.println("    _    _");
-                System.out.println("\\_// \\_//");
-                System.exit(0);
-            } else if (choice == 1) {
-                System.out.print("enter a decimal number : ");
-                n = sc.nextLine();
-                ans = ToHexaDecimal(n);
-                System.out.println("Octal of " + n + " is " + ans);
-            } else if (choice == 2) {
-                System.out.print("enter a hexadecimal number : ");
-                n = sc.nextInt();
-                ans = ToDecimal(n);
-                System.out.println("Decimal of " + n + " is " + ans);
-            } else {
-                System.out.println("enter a valid choice");
-            }
+        System.out.println("====== enter your choice ======");
+        System.out.println("Enter 1 for decimal to HEXA : ");
+        System.out.println("Enter 2 for HEXA to decimal : ");
+        System.out.println("Enter 0 to EXIT : ");
+        System.out.print("CHOICE : ");
+        int choice = sc.nextInt();
 
-            System.out.println();
+        if (choice == 0) {
+            System.out.println("Exiting....");
+            System.exit(0);
+        } else if (choice == 1) {
+            System.out.print("enter a decimal number : ");
+            String dec = sc.next();
+            ans = toHexa(dec);
+
+        } else if (choice == 2) {
+            System.out.print("enter a Hexa number : ");
+            // String hex = sc.next();
+        } else {
+            System.out.println("enter a valid input");
         }
+
+        sc.close();
     }
 
-    public static String ToHexaDecimal(String n) {
-        int decimal = n;
+    public static String toHexa(String dec) {
 
         StringBuilder hex = new StringBuilder();
-        while (decimal > 0) {
-            int temp = decimal % 16;
+
+        int n = Integer.parseInt(dec);
+        int temp;
+        int num = 0;
+        int mul = 1;
+        while (n > 0) {
+            temp = n % 16;
             if (temp < 10) {
-                hex.insert(0, temp);
-            } else {
+                hex.append(temp);
+            } else if (temp > 9) {
                 char hexChar = switch (temp) {
                     case 10 -> 'A';
                     case 11 -> 'B';
@@ -57,25 +56,11 @@ public class P47_decimal_and_hexadecimal {
                 };
                 hex.insert(0, hexChar);
             }
-            decimal = decimal / 16;
-        }
+            num = num + (temp * mul);
+            mul = mul * 10;
+            n = n / 16;
 
-        return hex.toString();
-    }
-
-    public static int ToDecimal(int n) {
-        int pow = 0;
-        int num = 0;
-        while (n > 0) {
-            int temp = n % 10;
-            if (temp > 7) {
-                System.out.println("enter a valid octal number");
-                return 0;
-            }
-            num = num + (temp * (int) Math.pow(8, pow));
-            n = n / 10;
-            pow = pow + 1;
         }
-        return num;
+        return (String)num;
     }
 }
